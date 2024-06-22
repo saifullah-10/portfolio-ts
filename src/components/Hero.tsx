@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Spotlight } from "@/components/ui/Spotlight";
+
 function Hero() {
   return (
     <div>

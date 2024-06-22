@@ -79,8 +79,8 @@ export const Highlight = ({
         duration: 2,
         ease: "linear",
         delay: 0.5,
-        repeat: Infinity, // Repeat infinitely
-        repeatDelay: 1, // Delay between repetitions
+        repeat: Infinity,
+        repeatDelay: 1,
         repeatType: "reverse",
       }}
       style={{
@@ -89,7 +89,7 @@ export const Highlight = ({
         display: "inline",
       }}
       className={cn(
-        `relative inline-block pb-1   px-1 rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-indigo-500 dark:to-purple-500`,
+        `relative inline-block rounded-lg bg-gradient-to-r from-indigo-300 to-purple-300 dark:from-white/0  dark:via-white/0 dark:to-white/0`,
         className
       )}
     >

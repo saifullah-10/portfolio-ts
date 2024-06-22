@@ -5,7 +5,7 @@ import { cn } from "@/utils/cn";
 
 export const FlipWords = ({
   words,
-  duration = 3000,
+  duration = 1000,
   className,
 }: {
   words: string[];
@@ -52,14 +52,11 @@ export const FlipWords = ({
         }}
         exit={{
           opacity: 0,
-          y: -40,
-          x: 40,
-          filter: "blur(8px)",
-          scale: 2,
+
           position: "absolute",
         }}
         className={cn(
-          "z-10 inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
+          "z-10 uppercase tracking-widest inline-block relative text-left text-neutral-900 dark:text-neutral-100 px-2",
           className
         )}
         key={currentWord}
