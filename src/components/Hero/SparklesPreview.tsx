@@ -5,8 +5,10 @@ import { Highlight } from "../ui/hero-highlight";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
 import { HeroParagraph } from "./HeroParagraph";
+import MyImg from "../../../public/myimg.png";
 
 import { HeroButton } from "./HeroButton";
+import Image from "next/image";
 
 export function SparklesPreview() {
   const words = [
@@ -31,11 +33,9 @@ export function SparklesPreview() {
           particleColor="#FFFFFF"
         />
       </div>
-      <div className=" flex flex-col md:flex-row lg:flex-row  w-full  h-full relative  lg:py-20 md:py-10  ">
-        <div className=" p-4 relative  z-10  w-full ">
+      <div className=" flex flex-col-reverse md:flex-row lg:flex-row  w-full  h-full relative md:pl-5 pl-0 lg:pl-10 lg:py-20 md:py-10 py-24  ">
+        <div className=" p-4 relative flex items-center pt-20  z-10  w-full ">
           <div className=" flex flex-col  lg:gap-5 gap-3  ">
-            <div></div>
-
             <motion.div
               initial={{ x: "-500%" }}
               animate={{ x: "0%" }}
@@ -73,8 +73,29 @@ export function SparklesPreview() {
             </motion.div>
           </div>
         </div>
-        <div className=" w-full text-center p-4">
-          <h1 className=" text-white"> Image</h1>
+        <div className=" w-full h-full flex flex-col gap-4 self-end justify-center items-center text-center p-4">
+          <motion.div
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className=" flex justify-center text-black dark:text-white w-80"
+          >
+            <Image
+              className=" px-4 pt-2 border-2 rounded-3xl"
+              height={300}
+              src={MyImg}
+              alt="Portfolio Image"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+            className=" text-black dark:text-white w-80"
+          >
+            <h2 className=" uppercase tracking-widest ">Frontend Developer</h2>
+          </motion.div>
         </div>
       </div>
     </div>

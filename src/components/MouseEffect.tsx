@@ -5,7 +5,7 @@ import HeroSection from "./HeroSection";
 
 function MouseEffect() {
   return (
-    <HeroHighlight className="  min-h-screen w-full ">
+    <HeroHighlight className=" h-[770px]  lg:min-h-screen w-full ">
       <div className=" h-[calc(100vh-2.5rem)] mt-10">
         <HeroSection />
       </div>
