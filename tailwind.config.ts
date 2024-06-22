@@ -73,7 +73,16 @@ const config: Config = {
   },
   plugins: [
     addVariablesForColors,
-    function ({ matchUtilities, theme }: any) {
+    function ({ matchUtilities, theme, addBase }: any) {
+      let allColors = flattenColorPalette(theme("colors"));
+      let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+      );
+
+      addBase({
+        ":root": newVars,
+      });
+      // button design
       matchUtilities(
         {
           "bg-dot-thick": (value: any) => ({
@@ -87,4 +96,14 @@ const config: Config = {
     },
   ],
 };
+// function addVariablesForColors({ addBase, theme }: any) {
+//   let allColors = flattenColorPalette(theme("colors"));
+//   let newVars = Object.fromEntries(
+//     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+//   );
+
+//   addBase({
+//     ":root": newVars,
+//   });
+// }
 export default config;

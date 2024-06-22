@@ -4,6 +4,9 @@ import { SparklesCore } from "../ui/sparkles";
 import { Highlight } from "../ui/hero-highlight";
 import { FlipWords } from "../ui/flip-words";
 import { motion } from "framer-motion";
+import { HeroParagraph } from "./HeroParagraph";
+
+import { HeroButton } from "./HeroButton";
 
 export function SparklesPreview() {
   const words = [
@@ -47,12 +50,26 @@ export function SparklesPreview() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 2 }}
+              transition={{ duration: 1, delay: 1.5 }}
               className=" flex  items-center"
             >
               <div className="text-4xl font-normal text-neutral-600 dark:text-neutral-400">
                 <FlipWords words={words} /> <br />
               </div>
+            </motion.div>
+            <motion.div
+              initial={{ x: -200 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: 1,
+                delay: 2,
+              }}
+              className=" text-black dark:text-white w-80"
+            >
+              <HeroParagraph words=" I am a Web Developer with experience in the MERN stack (MongoDB, Express.js, React, and Node.js)." />
+            </motion.div>
+            <motion.div>
+              <HeroButton></HeroButton>
             </motion.div>
           </div>
         </div>
