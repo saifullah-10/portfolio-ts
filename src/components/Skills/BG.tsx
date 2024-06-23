@@ -20,7 +20,7 @@ export function BG() {
         {hovered && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.7 }}
+            animate={{ opacity: 0.5 }}
             exit={{ opacity: 0 }}
             className="h-full w-full absolute inset-0"
           >

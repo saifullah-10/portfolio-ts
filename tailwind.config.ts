@@ -13,29 +13,44 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
-const config: Config = {
+const config = {
+  darkMode: ["class"],
+
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "class",
+  prefix: "",
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
-      // boxShadow: {
-      //   glow: "0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #f0f, 0 0 30px #f0f, 0 0 40px #f0f",
-      // },
-
       animation: {
         glow: "glow 1.5s ease-in-out infinite",
-        navGlow: "navGlow 1.5s ease-in-out infinite",
+        navGlow: "navGlow 1s ease-in-out infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
 
       keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
         spotlight: {
           "0%": {
             opacity: "0",
@@ -69,9 +84,50 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
   plugins: [
+    require("tailwindcss-animate"),
     addVariablesForColors,
     function ({ matchUtilities, theme, addBase }: any) {
       let allColors = flattenColorPalette(theme("colors"));
@@ -95,15 +151,6 @@ const config: Config = {
       );
     },
   ],
-};
-// function addVariablesForColors({ addBase, theme }: any) {
-//   let allColors = flattenColorPalette(theme("colors"));
-//   let newVars = Object.fromEntries(
-//     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-//   );
+} satisfies Config;
 
-//   addBase({
-//     ":root": newVars,
-//   });
-// }
 export default config;
