@@ -33,24 +33,24 @@ const config = {
     extend: {
       animation: {
         glow: "glow 1.5s ease-in-out infinite",
-        navGlow: "navGlow 1s ease-in-out infinite",
+        navGlow: "navGlow 1.9s ease-in-out infinite",
         spotlight: "spotlight 2s ease .75s 1 forwards",
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+        // "accordion-down": "accordion-down 0.2s ease-out",
+        // "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
       },
 
       keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
+        // "accordion-down": {
+        //   from: { height: "0" },
+        //   to: { height: "var(--radix-accordion-content-height)" },
+        // },
+        // "accordion-up": {
+        //   from: { height: "var(--radix-accordion-content-height)" },
+        //   to: { height: "0" },
+        // },
         spotlight: {
           "0%": {
             opacity: "0",
