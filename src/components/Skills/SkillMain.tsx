@@ -1,7 +1,12 @@
 import React from "react";
+import { BG } from "./BG";
 
 function SkillMain() {
-  return <div className=" py-20 text-4xl text-white">SkillMain</div>;
+  return (
+    <div className="text-white">
+      <BG></BG>
+    </div>
+  );
 }
 
 export default SkillMain;
