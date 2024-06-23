@@ -1,0 +1,32 @@
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 1));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.5));
+  }
+}
+
+.glowing-particle {
+  animation: glow 2s infinite;
+}
+
+/* @keyframes glowst {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 20px #36e4f5) drop-shadow(0 0 20px #36e4f5)
+      drop-shadow(0 0 20px #36e4f5);
+  }
+  50% {
+    filter: drop-shadow(0 0 50px #36e4f5);
+  }
+} */
+
+.glowing-stroke {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-miterlimit: 10;
+  filter: drop-shadow(0 0 20px #36e4f5) drop-shadow(0 0 20px #36e4f5)
+    drop-shadow(0 0 20px #36e4f5);
+}
