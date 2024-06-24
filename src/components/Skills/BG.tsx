@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import {
   AnimatePresence,
   motion,
-  useAnimation,
+  useAnimationControls,
   useInView,
 } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
@@ -21,21 +21,23 @@ export function BG() {
     throw new Error("MainContext");
   }
   const progress = context.progress;
-  const mainControls = useAnimation();
+
+  const mainControls = useAnimationControls();
   const ref = useRef(null);
   const isView = useInView(ref);
-  console.log(isView);
 
   useEffect(() => {
     if (isView) {
+      console.log(isView);
       setHovered(true);
       mainControls.start({ opacity: 1 });
     } else {
       setHovered(false);
     }
-  }, [isView, mainControls]);
+  }, [isView]);
   return (
     <motion.div
+      ref={ref}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="min-h-screen flex md:flex-row flex-col lg:flex-row overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
@@ -48,18 +50,19 @@ export function BG() {
       {/* <Progress value={80} /> */}
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={mainControls}
-        transition={{
-          duration: 1,
-          ease: "easeInOut",
-          type: "spring",
-          stiffness: 100,
-          damping: 10,
+        style={{
+          transform: isView ? "translateX(0px)" : "translateX(-600px)",
+          opacity: isView ? 1 : 0,
+          transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
         }}
+        // initial={{ opacity: 0, x: -200 }}
+        // animate={isView && { opacity: 1, x: 0 }}
+        // transition={{
+        //   duration: 1,
+        // }}
         className={` flex gap-6  relative w-full h-full z-10`}
       >
-        <motion.div ref={ref} className="w-full flex-1 relative">
+        <motion.div className="w-full flex-1 relative">
           <motion.svg
             id="Layer_1"
             data-name="Layer 1"
