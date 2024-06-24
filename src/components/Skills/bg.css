@@ -26,7 +26,7 @@
 .glowing-stroke {
   stroke: #fff;
   stroke-width: 3;
+  fill: #202020 !important;
   stroke-miterlimit: 10;
-  filter: drop-shadow(0 0 20px #36e4f5) drop-shadow(0 0 20px #36e4f5)
-    drop-shadow(0 0 20px #36e4f5);
+  filter: drop-shadow(0 0 10px #36e4f5);
 }

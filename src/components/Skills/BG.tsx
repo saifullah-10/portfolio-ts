@@ -1,7 +1,12 @@
 "use client";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { Progress } from "../uiFiles/Progress";
 import Context, { MainContext } from "@/Context/Context";
@@ -16,9 +21,21 @@ export function BG() {
     throw new Error("MainContext");
   }
   const progress = context.progress;
-  console.log(progress);
+  const mainControls = useAnimation();
+  const ref = useRef(null);
+  const isView = useInView(ref);
+  console.log(isView);
+
+  useEffect(() => {
+    if (isView) {
+      setHovered(true);
+      mainControls.start({ opacity: 1 });
+    } else {
+      setHovered(false);
+    }
+  }, [isView, mainControls]);
   return (
-    <div
+    <motion.div
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="min-h-screen flex md:flex-row flex-col lg:flex-row overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
@@ -30,7 +47,70 @@ export function BG() {
 
       {/* <Progress value={80} /> */}
 
-      <div className=" flex gap-6 w-full h-full relative z-10 ">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={mainControls}
+        transition={{
+          duration: 1,
+          ease: "easeInOut",
+          type: "spring",
+          stiffness: 100,
+          damping: 10,
+        }}
+        className={` flex gap-6  relative w-full h-full z-10`}
+      >
+        <motion.div ref={ref} className="w-full flex-1 relative">
+          <motion.svg
+            id="Layer_1"
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 619 811"
+            className=" overflow-visible"
+          >
+            <path
+              id="blob-path"
+              d={pathData}
+              className="glowing-stroke "
+              style={{
+                fill: "none",
+                stroke: "#fff",
+                strokeWidth: 3,
+                strokeMiterlimit: 10,
+              }}
+            />
+            <motion.circle
+              className="glowing-particle"
+              cx="1"
+              cy="4"
+              r="5"
+              fill="#ff0000"
+              stroke="#ff0000"
+              strokeWidth="2"
+              initial={false}
+              animate={{
+                pathLength: [0, 1],
+                transition: {
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: "linear",
+                },
+              }}
+            >
+              {" "}
+              <animateMotion
+                repeatCount="indefinite"
+                dur="10s"
+                path={pathData}
+              />
+            </motion.circle>
+          </motion.svg>
+          <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+            <div className=" text-white text-4xl uppercase  mt-2">Expart</div>
+            <div className="flex w-full h-full justify-center items-center">
+              <div className=" text-white">body</div>
+            </div>
+          </div>
+        </motion.div>
         <div className="w-full flex-1 relative">
           <motion.svg
             id="Layer_1"
@@ -135,59 +215,7 @@ export function BG() {
             </div>
           </div>
         </div>
-        <div className="w-full flex-1 relative">
-          <motion.svg
-            id="Layer_1"
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 619 811"
-            className=" overflow-visible"
-          >
-            <path
-              id="blob-path"
-              d={pathData}
-              className="glowing-stroke "
-              style={{
-                fill: "none",
-                stroke: "#fff",
-                strokeWidth: 3,
-                strokeMiterlimit: 10,
-              }}
-            />
-            <motion.circle
-              className="glowing-particle"
-              cx="1"
-              cy="4"
-              r="5"
-              fill="#ff0000"
-              stroke="#ff0000"
-              strokeWidth="2"
-              initial={false}
-              animate={{
-                pathLength: [0, 1],
-                transition: {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {" "}
-              <animateMotion
-                repeatCount="indefinite"
-                dur="10s"
-                path={pathData}
-              />
-            </motion.circle>
-          </motion.svg>
-          <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-            <div className=" text-white text-4xl uppercase  mt-2">Expart</div>
-            <div className="flex w-full h-full justify-center items-center">
-              <div className=" text-white">body</div>
-            </div>
-          </div>
-        </div>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {hovered && (
@@ -212,6 +240,6 @@ export function BG() {
       </AnimatePresence>
       {/* Radial gradient for the cute fade */}
       <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
-    </div>
+    </motion.div>
   );
 }

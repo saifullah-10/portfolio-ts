@@ -28,9 +28,6 @@ function Navbar({ className }: { className?: string }) {
       };
     }
   }, [lastScrollY]);
-  if (!hide) {
-    console.log("show");
-  }
 
   return (
     <div
