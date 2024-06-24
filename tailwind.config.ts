@@ -31,6 +31,27 @@ const config = {
       },
     },
     extend: {
+      transitionTimingFunction: {
+        "custom-bezier": "cubic-bezier(0.17, 0.55, 0.55, 1)",
+      },
+      transitionDuration: {
+        "500": "0.5s",
+        "800": "0.8s",
+        "1000": "1s",
+        "1500": "1.5s",
+        "2000": "2s",
+        "2500": "2.5s",
+        "3000": "3s",
+      },
+      transitionDelay: {
+        "500": "0.5s",
+        "1000": "1s",
+        "1500": "1.5s",
+        "2000": "2s",
+        "2500": "2.5s",
+        "3000": "3s",
+        "3500": "3.5s",
+      },
       animation: {
         glow: "glow 1.5s ease-in-out infinite",
         navGlow: "navGlow 1.9s ease-in-out infinite",

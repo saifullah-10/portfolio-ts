@@ -23,46 +23,38 @@ export function BG() {
   const progress = context.progress;
 
   const mainControls = useAnimationControls();
-  const ref = useRef(null);
-  const isView = useInView(ref);
+  const expertRef = useRef(null);
+  const comfortableRef = useRef(null);
+  const familiarRef = useRef(null);
+  const expertInView = useInView(expertRef);
+  const comfortableInView = useInView(comfortableRef);
+  const familiarInView = useInView(familiarRef);
+  console.log(comfortableInView);
 
-  useEffect(() => {
-    if (isView) {
-      console.log(isView);
-      setHovered(true);
-      mainControls.start({ opacity: 1 });
-    } else {
-      setHovered(false);
-    }
-  }, [isView]);
   return (
     <motion.div
-      ref={ref}
+      ref={expertRef}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className="min-h-screen flex md:flex-row flex-col lg:flex-row overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
     >
-      {/* <p className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-        With insomnia, nothing&apos;s real. Everything is far away. Everything
-        is a copy, of a copy, of a copy
-      </p> */}
-
       {/* <Progress value={80} /> */}
 
       <motion.div
-        style={{
-          transform: isView ? "translateX(0px)" : "translateX(-600px)",
-          opacity: isView ? 1 : 0,
-          transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-        }}
-        // initial={{ opacity: 0, x: -200 }}
-        // animate={isView && { opacity: 1, x: 0 }}
-        // transition={{
-        //   duration: 1,
-        // }}
-        className={` flex gap-6  relative w-full h-full z-10`}
+        className={` flex gap-6 flex-col lg:flex-row  relative w-full h-full z-10`}
       >
-        <motion.div className="w-full flex-1 relative">
+        <motion.div
+          // style={{
+          //   transform: expertInView ? "translateX(0px)" : "translateX(-100px)",
+          //   opacity: expertInView ? 1 : 0,
+          //   transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          // }}
+          className={`${
+            expertInView
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-24 opacity-0"
+          } ease-custom-bezier duration-1000  w-full flex-1 relative`}
+        >
           <motion.svg
             id="Layer_1"
             data-name="Layer 1"
@@ -114,7 +106,14 @@ export function BG() {
             </div>
           </div>
         </motion.div>
-        <div className="w-full flex-1 relative">
+        <div
+          ref={comfortableRef}
+          className={`${
+            comfortableInView
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-24 opacity-0"
+          } ease-custom-bezier transition-all delay-0 md:delay-500 lg:delay-500 duration-800 w-full flex-1 relative`}
+        >
           <motion.svg
             id="Layer_1"
             data-name="Layer 1"
@@ -166,7 +165,14 @@ export function BG() {
             </div>
           </div>
         </div>
-        <div className="w-full flex-1 relative">
+        <div
+          ref={familiarRef}
+          className={`${
+            familiarInView
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-24 opacity-0"
+          } ease-custom-bezier transition-all delay-0 md:delay-500 lg:delay-1000 duration-800 w-full flex-1 relative`}
+        >
           <motion.svg
             id="Layer_1"
             data-name="Layer 1"
