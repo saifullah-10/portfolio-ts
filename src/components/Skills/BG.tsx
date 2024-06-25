@@ -11,6 +11,7 @@ import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { Progress } from "../uiFiles/Progress";
 import Context, { MainContext } from "@/Context/Context";
 import "./bg.css";
+import useResponsiveDelay from "@/utils/delay";
 
 export function BG() {
   const pathData =
@@ -22,207 +23,224 @@ export function BG() {
   }
   const progress = context.progress;
 
-  const mainControls = useAnimationControls();
-  const expertRef = useRef(null);
-  const comfortableRef = useRef(null);
+  // const mainControls = useAnimationControls();
+  // const expertRef = useRef(null);
+  // const comfortableRef = useRef(null);
   const familiarRef = useRef(null);
-  const expertInView = useInView(expertRef);
-  const comfortableInView = useInView(comfortableRef);
+  // const expertInView = useInView(expertRef);
+  // const comfortableInView = useInView(comfortableRef);
   const familiarInView = useInView(familiarRef);
-  console.log(comfortableInView);
+  // // console.log(comfortableInView);
+  const { delay500, delay1000 } = useResponsiveDelay();
+  console.log(delay500, delay1000);
 
   return (
     <motion.div
-      ref={expertRef}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="min-h-screen flex md:flex-row flex-col lg:flex-row overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
+      className="min-h-screen overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
     >
       {/* <Progress value={80} /> */}
-
+      <div className=" w-full my-10">
+        <h1 className=" uppercase py-10 relative z-10 traking-wideset  md:text-3xl text-xl lg:text-4xl drop-shadow-skillGlow text-center">
+          Skills
+        </h1>
+      </div>
       <motion.div
-        className={` flex gap-6 flex-col lg:flex-row  relative w-full h-full z-10`}
+        className={`  flex gap-6 flex-col lg:flex-row  relative w-full h-[calc(100%-100px)] z-10`}
       >
-        <motion.div
-          // style={{
-          //   transform: expertInView ? "translateX(0px)" : "translateX(-100px)",
-          //   opacity: expertInView ? 1 : 0,
-          //   transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-          // }}
-          className={`${
-            expertInView
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-24 opacity-0"
-          } ease-custom-bezier duration-1000  w-full flex-1 relative`}
-        >
-          <motion.svg
-            id="Layer_1"
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 619 811"
-            className=" overflow-visible"
+        <div className=" flex-1">
+          <motion.div
+            // style={{
+            //   transform: expertInView ? "translateX(0px)" : "translateX(-100px)",
+            //   opacity: expertInView ? 1 : 0,
+            //   transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            // }}
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: "-200px" }}
+            transition={{ duration: 1 }}
+            className={`  ease-custom-bezier md:h-[80%] h-full  lg:h-[80%] relative`}
           >
-            <path
-              id="blob-path"
-              d={pathData}
-              className="glowing-stroke "
-              style={{
-                fill: "none",
-                stroke: "#fff",
-                strokeWidth: 3,
-                strokeMiterlimit: 10,
-              }}
-            />
-            <motion.circle
-              className="glowing-particle"
-              cx="1"
-              cy="4"
-              r="5"
-              fill="#ff0000"
-              stroke="#ff0000"
-              strokeWidth="2"
-              initial={false}
-              animate={{
-                pathLength: [0, 1],
-                transition: {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
+            <motion.svg
+              id="Layer_1"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 619 811"
+              className="w-full h-full overflow-visible"
             >
-              {" "}
-              <animateMotion
-                repeatCount="indefinite"
-                dur="10s"
-                path={pathData}
+              <path
+                id="blob-path"
+                d={pathData}
+                className="glowing-stroke "
+                style={{
+                  fill: "none",
+                  stroke: "#fff",
+                  strokeWidth: 3,
+                  strokeMiterlimit: 10,
+                }}
               />
-            </motion.circle>
-          </motion.svg>
-          <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-            <div className=" text-white text-4xl uppercase  mt-2">Expart</div>
-            <div className="flex w-full h-full justify-center items-center">
-              <div className=" text-white">body</div>
+              <motion.circle
+                className="glowing-particle"
+                cx="1"
+                cy="4"
+                r="5"
+                fill="#ff0000"
+                stroke="#ff0000"
+                strokeWidth="2"
+                initial={false}
+                animate={{
+                  pathLength: [0, 1],
+                  transition: {
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {" "}
+                <animateMotion
+                  repeatCount="indefinite"
+                  dur="10s"
+                  path={pathData}
+                />
+              </motion.circle>
+            </motion.svg>
+            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+                Expart
+              </div>
+              <div className="flex w-full h-full justify-center items-center">
+                <div className=" text-white">body</div>
+              </div>
             </div>
-          </div>
-        </motion.div>
-        <div
-          ref={comfortableRef}
-          className={`${
-            comfortableInView
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-24 opacity-0"
-          } ease-custom-bezier transition-all delay-0 md:delay-500 lg:delay-500 duration-800 w-full flex-1 relative`}
-        >
-          <motion.svg
-            id="Layer_1"
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 619 811"
-            className=" overflow-visible"
-          >
-            <path
-              id="blob-path"
-              d={pathData}
-              className="glowing-stroke "
-              style={{
-                fill: "none",
-                stroke: "#fff",
-                strokeWidth: 3,
-                strokeMiterlimit: 10,
-              }}
-            />
-            <motion.circle
-              className="glowing-particle"
-              cx="1"
-              cy="4"
-              r="5"
-              fill="#ff0000"
-              stroke="#ff0000"
-              strokeWidth="2"
-              initial={false}
-              animate={{
-                pathLength: [0, 1],
-                transition: {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
-            >
-              {" "}
-              <animateMotion
-                repeatCount="indefinite"
-                dur="10s"
-                path={pathData}
-              />
-            </motion.circle>
-          </motion.svg>
-          <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-            <div className=" text-white text-4xl uppercase  mt-2">Expart</div>
-            <div className="flex w-full h-full justify-center items-center">
-              <div className=" text-white">body</div>
-            </div>
-          </div>
+          </motion.div>
         </div>
-        <div
-          ref={familiarRef}
-          className={`${
-            familiarInView
-              ? "translate-x-0 opacity-100"
-              : "-translate-x-24 opacity-0"
-          } ease-custom-bezier transition-all delay-0 md:delay-500 lg:delay-1000 duration-800 w-full flex-1 relative`}
-        >
-          <motion.svg
-            id="Layer_1"
-            data-name="Layer 1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 619 811"
-            className=" overflow-visible"
+        <div className="flex-1">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{
+              margin: "-200px",
+            }}
+            transition={{ duration: 0.8, delay: delay500 }}
+            className={` ease-custom-bezier  md:h-[80%]  lg:h-[80%] h-full relative`}
           >
-            <path
-              id="blob-path"
-              d={pathData}
-              className="glowing-stroke "
-              style={{
-                fill: "none",
-                stroke: "#fff",
-                strokeWidth: 3,
-                strokeMiterlimit: 10,
-              }}
-            />
-            <motion.circle
-              className="glowing-particle"
-              cx="1"
-              cy="4"
-              r="5"
-              fill="#ff0000"
-              stroke="#ff0000"
-              strokeWidth="2"
-              initial={false}
-              animate={{
-                pathLength: [0, 1],
-                transition: {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-              }}
+            <motion.svg
+              id="Layer_1"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 619 811"
+              className=" w-full h-full overflow-visible"
             >
-              {" "}
-              <animateMotion
-                repeatCount="indefinite"
-                dur="10s"
-                path={pathData}
+              <path
+                id="blob-path"
+                d={pathData}
+                className="glowing-stroke "
+                style={{
+                  fill: "none",
+                  stroke: "#fff",
+                  strokeWidth: 3,
+                  strokeMiterlimit: 10,
+                }}
               />
-            </motion.circle>
-          </motion.svg>
-          <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-            <div className=" text-white text-4xl uppercase  mt-2">Expart</div>
-            <div className="flex w-full h-full justify-center items-center">
-              <div className=" text-white">body</div>
+              <motion.circle
+                className="glowing-particle"
+                cx="1"
+                cy="4"
+                r="5"
+                fill="#ff0000"
+                stroke="#ff0000"
+                strokeWidth="2"
+                initial={false}
+                animate={{
+                  pathLength: [0, 1],
+                  transition: {
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {" "}
+                <animateMotion
+                  repeatCount="indefinite"
+                  dur="10s"
+                  path={pathData}
+                />
+              </motion.circle>
+            </motion.svg>
+            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+                Expart
+              </div>
+              <div className="flex w-full h-full justify-center items-center">
+                <div className=" text-white">body</div>
+              </div>
             </div>
-          </div>
+          </motion.div>
+        </div>
+        <div className=" flex-1">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ margin: "-200px" }}
+            transition={{ duration: 0.8, delay: delay1000 }}
+            className={` ease-custom-bezier  h-full lg:h-[80%] md:h-[80%] relative`}
+          >
+            <motion.svg
+              id="Layer_1"
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 619 811"
+              className=" w-full h-full overflow-visible"
+            >
+              <path
+                id="blob-path"
+                d={pathData}
+                className="glowing-stroke "
+                style={{
+                  fill: "none",
+                  stroke: "#fff",
+                  strokeWidth: 3,
+                  strokeMiterlimit: 10,
+                }}
+              />
+              <motion.circle
+                className="glowing-particle"
+                cx="1"
+                cy="4"
+                r="5"
+                fill="#ff0000"
+                stroke="#ff0000"
+                strokeWidth="2"
+                initial={false}
+                animate={{
+                  pathLength: [0, 1],
+                  transition: {
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  },
+                }}
+              >
+                {" "}
+                <animateMotion
+                  repeatCount="indefinite"
+                  dur="10s"
+                  path={pathData}
+                />
+              </motion.circle>
+            </motion.svg>
+            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+                Expart
+              </div>
+              <div className="flex w-full h-full justify-center items-center">
+                <div className=" text-white">body</div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </motion.div>
 

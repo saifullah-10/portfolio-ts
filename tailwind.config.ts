@@ -52,6 +52,14 @@ const config = {
         "3000": "3s",
         "3500": "3.5s",
       },
+      dropShadow: {
+        skillGlow: [
+          "0 0 5px #fff",
+          "0 0 8px #fff",
+          "0 0 10px #ff00ff",
+          "0 0 15px #ff00ff",
+        ],
+      },
       animation: {
         glow: "glow 1.5s ease-in-out infinite",
         navGlow: "navGlow 1.9s ease-in-out infinite",
