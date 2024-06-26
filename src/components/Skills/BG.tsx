@@ -31,8 +31,8 @@ export function BG() {
   // const comfortableInView = useInView(comfortableRef);
   const familiarInView = useInView(familiarRef);
   // // console.log(comfortableInView);
-  const { delay500, delay1000 } = useResponsiveDelay();
-  console.log(delay500, delay1000);
+  const { delayResponsive } = useResponsiveDelay();
+  console.log(delayResponsive);
 
   return (
     <motion.div
@@ -107,7 +107,7 @@ export function BG() {
               </motion.circle>
             </motion.svg>
             <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
                 Expart
               </div>
               <div className="flex w-full h-full justify-center items-center">
@@ -123,7 +123,11 @@ export function BG() {
             viewport={{
               margin: "-200px",
             }}
-            transition={{ duration: 0.8, delay: delay500 }}
+            transition={{
+              duration: 0.8,
+              delay:
+                delayResponsive === "lg" || delayResponsive === "md" ? 0.5 : 0,
+            }}
             className={` ease-custom-bezier  md:h-[80%]  lg:h-[80%] h-full relative`}
           >
             <motion.svg
@@ -170,12 +174,17 @@ export function BG() {
                 />
               </motion.circle>
             </motion.svg>
-            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+            <div className="flex w-[70%] left-1/2  -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
                 Expart
               </div>
               <div className="flex w-full h-full justify-center items-center">
-                <div className=" text-white">body</div>
+                <div className=" w-full   text-white">
+                  <motion.div className=" block">
+                    <Progress time={1000} value={40} />
+                  </motion.div>
+                  <h1>hello</h1>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -185,7 +194,11 @@ export function BG() {
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ margin: "-200px" }}
-            transition={{ duration: 0.8, delay: delay1000 }}
+            transition={{
+              duration: 0.8,
+              delay:
+                delayResponsive === "lg" || delayResponsive === "md" ? 1 : 0,
+            }}
             className={` ease-custom-bezier  h-full lg:h-[80%] md:h-[80%] relative`}
           >
             <motion.svg
@@ -233,7 +246,7 @@ export function BG() {
               </motion.circle>
             </motion.svg>
             <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
-              <div className=" text-white text-lg lg:text-2xl uppercase  mt-3">
+              <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
                 Expart
               </div>
               <div className="flex w-full h-full justify-center items-center">

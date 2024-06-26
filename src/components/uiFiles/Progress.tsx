@@ -1,24 +1,44 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 
 import { cn } from "@/lib/utils";
 import { MainContext } from "@/Context/Context";
+import useObserver from "@/utils/observer";
+
+interface CustomProgressProps
+  extends React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> {
+  time?: number;
+}
 
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
->(({ className, value = 0, ...props }, ref) => {
+  CustomProgressProps
+>(({ className, value = 0, time = 0, ...props }) => {
+  const ref = useRef<HTMLDivElement>(null);
   const context = useContext(MainContext);
   if (!context) {
     throw new Error("MainContext is null");
   }
   const { progress, setProgress } = context;
+  const { observer, observerState } = useObserver(ref);
+  console.log(observer, observerState);
+
   React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(value ?? 0), 1000);
-    return () => clearTimeout(timer);
-  }, [value, setProgress]);
+    let timer: NodeJS.Timeout | undefined;
+    if (observerState.isIntersecting) {
+      console.log(time);
+      timer = setTimeout(() => setProgress(value ?? 0), time);
+    } else {
+      setProgress(0);
+    }
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [value, observerState.isIntersecting, setProgress, time]);
   return (
     <ProgressPrimitive.Root
       ref={ref}
