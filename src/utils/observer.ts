@@ -1,4 +1,3 @@
-"use Client";
 import { useEffect, useMemo, useState, RefObject } from "react";
 
 interface ObserverState {
@@ -6,32 +5,33 @@ interface ObserverState {
 }
 
 interface UseObserverResult {
-  observer: IntersectionObserver;
+  observer: IntersectionObserver | null;
   observerState: ObserverState;
 }
 
-const useObserver = (
-  ref: RefObject<Element>,
-  threshold?: number
-): UseObserverResult => {
+const useObserver = (ref: RefObject<Element>): UseObserverResult => {
   const [observerState, setObserverState] = useState<ObserverState>({
     isIntersecting: false,
   });
 
-  const observer = useMemo(
-    () =>
-      new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            setObserverState({ isIntersecting: entry.isIntersecting });
-          });
-        },
-        { threshold: threshold }
-      ),
-    [threshold]
-  );
+  const observer = useMemo(() => {
+    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
+      return new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          setObserverState({ isIntersecting: entry.isIntersecting });
+        });
+      });
+    } else {
+      console.warn(
+        "IntersectionObserver is not supported in this environment."
+      );
+      return null;
+    }
+  }, []);
 
   useEffect(() => {
+    if (!observer) return;
+
     const currentRef = ref.current;
     if (currentRef) {
       observer.observe(currentRef);
@@ -43,7 +43,7 @@ const useObserver = (
       }
     };
   }, [ref, observer]);
-  console.log(observer);
+
   return { observer, observerState };
 };
 
