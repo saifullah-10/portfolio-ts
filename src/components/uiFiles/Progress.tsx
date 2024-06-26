@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 
 import { cn } from "@/lib/utils";
@@ -21,10 +21,9 @@ const Progress = React.forwardRef<
   if (!context) {
     throw new Error("MainContext is null");
   }
-  const { progress, setProgress } = context;
+  // const { setProgress } = context;
   const { observer, observerState } = useObserver(ref);
-  console.log(observer, observerState);
-
+  const [progress, setProgress] = useState(0);
   React.useEffect(() => {
     let timer: NodeJS.Timeout | undefined;
     if (observerState.isIntersecting) {
@@ -40,21 +39,25 @@ const Progress = React.forwardRef<
     };
   }, [value, observerState.isIntersecting, setProgress, time]);
   return (
-    <ProgressPrimitive.Root
-      ref={ref}
-      className={cn(
-        "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
-        className
-      )}
-      {...props}
-    >
-      <ProgressPrimitive.Indicator
-        className="h-full w-full flex-1 z-10 relative bg-red-300 transition-all duration-1000"
-        style={{
-          transform: `translateX(-${100 - (progress || 0)}%)`,
-        }}
-      />
-    </ProgressPrimitive.Root>
+    <>
+      {" "}
+      <ProgressPrimitive.Root
+        ref={ref}
+        className={cn(
+          "relative h-2 w-full overflow-hidden rounded-full bg-primary/20",
+          className
+        )}
+        {...props}
+      >
+        <ProgressPrimitive.Indicator
+          className="h-full w-full flex-1 z-10 relative bg-red-300 transition-all duration-1000"
+          style={{
+            transform: `translateX(-${100 - (progress || 0)}%)`,
+          }}
+        />
+      </ProgressPrimitive.Root>
+      <div>Hello</div>
+    </>
   );
 });
 Progress.displayName = ProgressPrimitive.Root.displayName;

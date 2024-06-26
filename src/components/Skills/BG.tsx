@@ -180,10 +180,26 @@ export function BG() {
               </div>
               <div className="flex w-full h-full justify-center items-center">
                 <div className=" w-full   text-white">
-                  <motion.div className=" block">
+                  <div>
+                    <h1>hello</h1>
                     <Progress time={1000} value={40} />
-                  </motion.div>
-                  <h1>hello</h1>
+                  </div>
+                  <div>
+                    <h1>hello</h1>
+                    <Progress time={1000} value={80} />
+                  </div>
+                  <div>
+                    <h1>hello</h1>
+                    <Progress time={1000} value={70} />
+                  </div>
+                  <div>
+                    <h1>hello</h1>
+                    <Progress time={1000} value={60} />
+                  </div>
+                  <div>
+                    <h1>hello</h1>
+                    <Progress time={1000} value={65} />
+                  </div>
                 </div>
               </div>
             </div>

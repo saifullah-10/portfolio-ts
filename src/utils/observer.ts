@@ -1,3 +1,4 @@
+"use Client";
 import { useEffect, useMemo, useState, RefObject } from "react";
 
 interface ObserverState {
