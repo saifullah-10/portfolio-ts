@@ -8,7 +8,7 @@ interface AllContextType {
 
 export const MainContext = createContext<AllContextType | null>(null);
 interface ContextProps {
-  children: ReactNode;
+  children?: any;
 }
 export default function Context({ children }: ContextProps) {
   const [progress, setProgress] = useState(0);

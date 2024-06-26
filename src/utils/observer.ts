@@ -1,11 +1,11 @@
-import { useEffect, useMemo, useState, RefObject } from "react";
+"use client";
+import { useEffect, useState, RefObject } from "react";
 
 interface ObserverState {
   isIntersecting: boolean;
 }
 
 interface UseObserverResult {
-  observer: IntersectionObserver | null;
   observerState: ObserverState;
 }
 
@@ -14,23 +14,19 @@ const useObserver = (ref: RefObject<Element>): UseObserverResult => {
     isIntersecting: false,
   });
 
-  const observer = useMemo(() => {
-    if (typeof window !== "undefined" && "IntersectionObserver" in window) {
-      return new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          setObserverState({ isIntersecting: entry.isIntersecting });
-        });
-      });
-    } else {
+  useEffect(() => {
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       console.warn(
         "IntersectionObserver is not supported in this environment."
       );
-      return null;
+      return;
     }
-  }, []);
 
-  useEffect(() => {
-    if (!observer) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        setObserverState({ isIntersecting: entry.isIntersecting });
+      });
+    });
 
     const currentRef = ref.current;
     if (currentRef) {
@@ -42,9 +38,9 @@ const useObserver = (ref: RefObject<Element>): UseObserverResult => {
         observer.unobserve(currentRef);
       }
     };
-  }, [ref, observer]);
+  }, [ref]);
 
-  return { observer, observerState };
+  return { observerState };
 };
 
 export default useObserver;

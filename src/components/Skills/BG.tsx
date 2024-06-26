@@ -180,7 +180,7 @@ export function BG() {
               </div>
               <div className="flex w-full h-full justify-center items-center">
                 <div className=" w-full   text-white">
-                  {/* <div>
+                  <div>
                     <h1>hello</h1>
                     <Progress time={1000} value={40} />
                   </div>
@@ -199,7 +199,7 @@ export function BG() {
                   <div>
                     <h1>hello</h1>
                     <Progress time={1000} value={65} />
-                  </div> */}
+                  </div>
                 </div>
               </div>
             </div>
