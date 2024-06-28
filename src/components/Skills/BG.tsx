@@ -1,17 +1,13 @@
 "use client";
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useContext } from "react";
 
-import {
-  AnimatePresence,
-  motion,
-  useAnimationControls,
-  useInView,
-} from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
 import { Progress } from "../uiFiles/Progress";
-import Context, { MainContext } from "@/Context/Context";
+import { MainContext } from "@/Context/Context";
 import "./bg.css";
 import useResponsiveDelay from "@/utils/delay";
+import { MovingBorder } from "../ui/moving-border";
 
 export function BG() {
   const pathData =
@@ -21,18 +17,8 @@ export function BG() {
   if (!context) {
     throw new Error("MainContext");
   }
-  const progress = context.progress;
 
-  // const mainControls = useAnimationControls();
-  // const expertRef = useRef(null);
-  // const comfortableRef = useRef(null);
-  const familiarRef = useRef(null);
-  // const expertInView = useInView(expertRef);
-  // const comfortableInView = useInView(comfortableRef);
-  const familiarInView = useInView(familiarRef);
-  // // console.log(comfortableInView);
   const { delayResponsive } = useResponsiveDelay();
-  console.log(delayResponsive);
 
   return (
     <motion.div
@@ -41,21 +27,18 @@ export function BG() {
       className="min-h-screen overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
     >
       {/* <Progress value={80} /> */}
-      <div className=" w-full my-10">
-        <h1 className=" uppercase py-10 relative z-10 traking-wideset  md:text-3xl text-xl lg:text-4xl drop-shadow-skillGlow text-center">
-          Skills
-        </h1>
+      <div className=" w-full   my-10">
+        <div className="bg-gray-500 w-40 border-animation rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   mx-auto">
+          <h1 className="  uppercase py-5 traking-wideset  md:text-3xl text-xl lg:text-4xl text-center">
+            Skills
+          </h1>
+        </div>
       </div>
       <motion.div
         className={`  flex gap-6 flex-col lg:flex-row  relative w-full h-[calc(100%-100px)] z-10`}
       >
         <div className=" flex-1">
           <motion.div
-            // style={{
-            //   transform: expertInView ? "translateX(0px)" : "translateX(-100px)",
-            //   opacity: expertInView ? 1 : 0,
-            //   transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            // }}
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ margin: "-200px" }}
@@ -80,31 +63,6 @@ export function BG() {
                   strokeMiterlimit: 10,
                 }}
               />
-              <motion.circle
-                className="glowing-particle"
-                cx="1"
-                cy="4"
-                r="5"
-                fill="#ff0000"
-                stroke="#ff0000"
-                strokeWidth="2"
-                initial={false}
-                animate={{
-                  pathLength: [0, 1],
-                  transition: {
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                }}
-              >
-                {" "}
-                <animateMotion
-                  repeatCount="indefinite"
-                  dur="10s"
-                  path={pathData}
-                />
-              </motion.circle>
             </motion.svg>
             <div className="flex w-[70%] left-1/2 -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
@@ -169,31 +127,6 @@ export function BG() {
                   strokeMiterlimit: 10,
                 }}
               />
-              <motion.circle
-                className="glowing-particle"
-                cx="1"
-                cy="4"
-                r="5"
-                fill="#ff0000"
-                stroke="#ff0000"
-                strokeWidth="2"
-                initial={false}
-                animate={{
-                  pathLength: [0, 1],
-                  transition: {
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                }}
-              >
-                {" "}
-                <animateMotion
-                  repeatCount="indefinite"
-                  dur="10s"
-                  path={pathData}
-                />
-              </motion.circle>
             </motion.svg>
             <div className="flex w-[70%] left-1/2  -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
@@ -260,31 +193,6 @@ export function BG() {
                   strokeMiterlimit: 10,
                 }}
               />
-              <motion.circle
-                className="glowing-particle"
-                cx="1"
-                cy="4"
-                r="5"
-                fill="#ff0000"
-                stroke="#ff0000"
-                strokeWidth="2"
-                initial={false}
-                animate={{
-                  pathLength: [0, 1],
-                  transition: {
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "linear",
-                  },
-                }}
-              >
-                {" "}
-                <animateMotion
-                  repeatCount="indefinite"
-                  dur="10s"
-                  path={pathData}
-                />
-              </motion.circle>
             </motion.svg>
             <div className="flex  w-[70%] left-1/2 -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0 ">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">

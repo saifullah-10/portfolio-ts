@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import MouseEffect from "@/components/MouseEffect";
 import SkillMain from "@/components/Skills/SkillMain";
 import Context from "@/Context/Context";
+import ProjectMain from "@/components/Projects/projectMain";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
           <Hero />
         </div>
         <SkillMain />
+        <ProjectMain />
       </main>
     </Context>
   );
