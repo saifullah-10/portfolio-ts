@@ -31,6 +31,9 @@ const config = {
       },
     },
     extend: {
+      boxShadow: {
+        "skill-glow": "0 0 10px #fff ,0 0 15px #51F4BE",
+      },
       transitionTimingFunction: {
         "custom-bezier": "cubic-bezier(0.17, 0.55, 0.55, 1)",
       },

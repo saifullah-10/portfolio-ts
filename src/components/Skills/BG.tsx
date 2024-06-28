@@ -106,12 +106,33 @@ export function BG() {
                 />
               </motion.circle>
             </motion.svg>
-            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+            <div className="flex w-[70%] left-1/2 -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
                 Expart
               </div>
-              <div className="flex w-full h-full justify-center items-center">
-                <div className=" text-white">body</div>
+              <div className="flex w-full mt-8 h-full justify-center items-center">
+                <div className=" w-full uppercase    text-white">
+                  <div>
+                    <h1 className="mb-1">Javascript</h1>
+                    <Progress time={1000} value={80} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">React</h1>
+                    <Progress time={1000} value={80} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Tailwind Css</h1>
+                    <Progress time={1000} value={90} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Css</h1>
+                    <Progress time={1000} value={90} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">HTML</h1>
+                    <Progress time={1000} value={90} />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -176,29 +197,33 @@ export function BG() {
             </motion.svg>
             <div className="flex w-[70%] left-1/2  -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
-                Expart
+                Comfortable
               </div>
-              <div className="flex w-full h-full justify-center items-center">
-                <div className=" w-full   text-white">
+              <div className="flex w-full mt-10 h-full justify-center items-center">
+                <div className=" w-full uppercase text-white">
                   <div>
-                    <h1>hello</h1>
-                    <Progress time={1000} value={40} />
-                  </div>
-                  <div>
-                    <h1>hello</h1>
-                    <Progress time={1000} value={80} />
-                  </div>
-                  <div>
-                    <h1>hello</h1>
-                    <Progress time={1000} value={70} />
-                  </div>
-                  <div>
-                    <h1>hello</h1>
+                    <h1 className="mb-1">Node Js</h1>
                     <Progress time={1000} value={60} />
                   </div>
                   <div>
-                    <h1>hello</h1>
-                    <Progress time={1000} value={65} />
+                    <h1 className="mb-1">Express Js</h1>
+                    <Progress time={1000} value={70} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Mongo DB</h1>
+                    <Progress time={1000} value={60} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Git & Github</h1>
+                    <Progress time={1000} value={70} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">NPM</h1>
+                    <Progress time={1000} value={80} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Yarn</h1>
+                    <Progress time={1000} value={80} />
                   </div>
                 </div>
               </div>
@@ -261,12 +286,33 @@ export function BG() {
                 />
               </motion.circle>
             </motion.svg>
-            <div className="flex w-full h-full flex-col justify-center items-center absolute top-0 left-0">
+            <div className="flex  w-[70%] left-1/2 -translate-x-[50%] h-full flex-col justify-center items-center absolute top-0 ">
               <div className=" text-white text-lg lg:text-2xl uppercase  mt-1">
-                Expart
+                Familiar
               </div>
-              <div className="flex w-full h-full justify-center items-center">
-                <div className=" text-white">body</div>
+              <div className="flex w-full mt-8  h-full justify-center items-center">
+                <div className=" w-full uppercase text-white">
+                  <div>
+                    <h1 className="mb-1">Typescript</h1>
+                    <Progress time={1000} value={60} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Redux</h1>
+                    <Progress time={1000} value={70} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Framer Motion</h1>
+                    <Progress time={1000} value={60} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">GSAP</h1>
+                    <Progress time={1000} value={50} />
+                  </div>
+                  <div>
+                    <h1 className="mb-1">Next Js</h1>
+                    <Progress time={1000} value={70} />
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
