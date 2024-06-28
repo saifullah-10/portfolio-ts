@@ -95,11 +95,10 @@ const config = {
         },
         glow: {
           "0%, 100%": {
-            boxShadow: "0 0 5px #fff",
+            boxShadow: "0 0 5px #fff ",
           },
           "50%": {
-            boxShadow:
-              "0 0 10px #fff, 0 0 20px #fff, 0 0 40px #f0f, 0 0 50px #f0f",
+            boxShadow: "0 0 10px #fff,0 0 20px #F7DC6F, 0 0 40px #F7DC6F",
           },
         },
         navGlow: {

@@ -27,10 +27,10 @@ export function BG() {
       className="min-h-screen overflow-hidden items-center justify-center  w-full gap-4 mx-auto px-8 relative"
     >
       {/* <Progress value={80} /> */}
-      <div className=" w-full   my-10">
-        <div className="bg-gray-500 w-40 border-animation rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   mx-auto">
-          <h1 className="  uppercase py-5 traking-wideset  md:text-3xl text-xl lg:text-4xl text-center">
-            Skills
+      <div className=" w-full flex justify-center   my-10">
+        <div className="bg-black  inline-block animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   mx-auto">
+          <h1 className="  uppercase py-5 px-5 traking-wideset  md:text-3xl text-xl lg:text-4xl text-center">
+            skills
           </h1>
         </div>
       </div>

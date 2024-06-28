@@ -42,7 +42,7 @@ export function SparklesPreview() {
               transition={{ duration: 1 }}
               className=" relative"
             >
-              <div className="w-40 h-2 animate-glow absolute rounded-2xl -top-10 bg-white"></div>{" "}
+              <div className="w-40 h-2 animate-glow absolute rounded-2xl -top-10 bg-white/[0.5]"></div>{" "}
               <Highlight className="text-black font-montserrat  uppercase dark:glow overflow-hidden whitespace-nowrap text-2xl text-bold md:text-4xl lg:text-[4rem] dark:shadow-purple-500  dark:text-[#fff]">
                 Saifullah Al Rafi
               </Highlight>

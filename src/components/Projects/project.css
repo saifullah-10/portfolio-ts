@@ -1,0 +1,22 @@
+.custom-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+.custom-list li::before {
+  content: "•";
+  font-size: 1.5rem;
+  padding-right: 0.5rem;
+  color: #ff0000;
+  animation: dotglow 0.5s infinite ease-in-out;
+}
+
+@keyframes dotglow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #ff0000;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #3ef1f1, 0 0 25px #3ef1f1,
+      0 0 30px #3ef1f1;
+  }
+}
