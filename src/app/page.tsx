@@ -4,6 +4,7 @@ import MouseEffect from "@/components/MouseEffect";
 import SkillMain from "@/components/Skills/SkillMain";
 import Context from "@/Context/Context";
 import ProjectMain from "@/components/Projects/projectMain";
+import { Contact } from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         </div>
         <SkillMain />
         <ProjectMain />
+        <Contact />
       </main>
     </Context>
   );

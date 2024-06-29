@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 const svgToDataUri = require("mini-svg-data-uri");
+
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
@@ -33,6 +34,7 @@ const config = {
     extend: {
       boxShadow: {
         "skill-glow": "0 0 10px #fff ,0 0 15px #51F4BE",
+        input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },
       transitionTimingFunction: {
         "custom-bezier": "cubic-bezier(0.17, 0.55, 0.55, 1)",
