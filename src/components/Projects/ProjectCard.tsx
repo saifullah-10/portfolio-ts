@@ -5,69 +5,204 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import Link from "next/link";
 import "./project.css";
+import Ass11 from "../../../public/assignment11.png";
 
 export function ProjectCard() {
   return (
-    <CardContainer className="inter-var">
-      <CardBody className="bg-gray-50 relative group/card  transition-all duration-500  dark:hover:shadow-skill-glow dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
-        <CardItem translateZ="100" className="w-full mt-4">
-          <Image
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            height="1000"
-            width="1000"
-            className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt="thumbnail"
-          />
-        </CardItem>
-        <CardItem
-          translateZ="50"
-          className="text-xl mt-5 font-bold text-neutral-600 dark:text-white"
-        >
-          Make things float in air
-        </CardItem>
-        <CardItem
-          translateZ="50"
-          className="text-sm mt-5 font-bold text-neutral-600 dark:text-white"
-        >
-          <ul className=" custom-list ml-6 leading-8">
-            <li>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
-              rerum.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
-              rerum.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
-              rerum.
-            </li>
-            <li>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
-              rerum.
-            </li>
-          </ul>
-        </CardItem>
-        <div className="flex justify-between items-center mt-5">
+    <div className=" flex gap-10 lg:flex-row flex-col">
+      {" "}
+      <CardContainer className="inter-var scr_img">
+        <CardBody className="bg-gray-50  relative group/card  transition-all duration-500  dark:hover:shadow-skill-glow dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
           <CardItem
-            translateZ={20}
-            as={Link}
-            href="https://twitter.com/mannupaaji"
-            target="__blank"
-            className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            translateZ="100"
+            className="w-full h-60 src_img no-scrollbar overflow-hidden hover:overflow-auto  mt-4"
           >
-            Github →
+            <Image
+              src={Ass11}
+              height="1000"
+              width="1000"
+              className=" w-full image object-cover translate-y-0  rounded-xl group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
           </CardItem>
+          <CardItem
+            translateZ="50"
+            className="text-xl mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            Make things float in air
+          </CardItem>
+          <CardItem
+            translateZ="50"
+            className="text-sm mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            <ul className=" custom-list ml-6 leading-8">
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+            </ul>
+          </CardItem>
+          <div className="flex justify-between items-center mt-5">
+            <CardItem
+              translateZ={20}
+              as={Link}
+              href="https://twitter.com/mannupaaji"
+              target="__blank"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Github →
+            </CardItem>
 
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Live
+            </CardItem>
+          </div>
+        </CardBody>
+      </CardContainer>
+      <CardContainer className="inter-var scr_img">
+        <CardBody className="bg-gray-50  relative group/card  transition-all duration-500  dark:hover:shadow-skill-glow dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
           <CardItem
-            translateZ={20}
-            as="button"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            translateZ="100"
+            className="w-full h-60 src_img no-scrollbar overflow-hidden hover:overflow-auto  mt-4"
           >
-            Live
+            <Image
+              src={Ass11}
+              height="1000"
+              width="1000"
+              className=" w-full image object-cover translate-y-0  rounded-xl group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
           </CardItem>
-        </div>
-      </CardBody>
-    </CardContainer>
+          <CardItem
+            translateZ="50"
+            className="text-xl mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            Make things float in air
+          </CardItem>
+          <CardItem
+            translateZ="50"
+            className="text-sm mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            <ul className=" custom-list ml-6 leading-8">
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+            </ul>
+          </CardItem>
+          <div className="flex justify-between items-center mt-5">
+            <CardItem
+              translateZ={20}
+              as={Link}
+              href="https://twitter.com/mannupaaji"
+              target="__blank"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Github →
+            </CardItem>
+
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Live
+            </CardItem>
+          </div>
+        </CardBody>
+      </CardContainer>
+      <CardContainer className="inter-var scr_img">
+        <CardBody className="bg-gray-50  relative group/card  transition-all duration-500  dark:hover:shadow-skill-glow dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
+          <CardItem
+            translateZ="100"
+            className="w-full h-60 src_img no-scrollbar overflow-hidden hover:overflow-auto  mt-4"
+          >
+            <Image
+              src={Ass11}
+              height="1000"
+              width="1000"
+              className=" w-full image object-cover translate-y-0  rounded-xl group-hover/card:shadow-xl"
+              alt="thumbnail"
+            />
+          </CardItem>
+          <CardItem
+            translateZ="50"
+            className="text-xl mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            Make things float in air
+          </CardItem>
+          <CardItem
+            translateZ="50"
+            className="text-sm mt-5 font-bold text-neutral-600 dark:text-white"
+          >
+            <ul className=" custom-list ml-6 leading-8">
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+              <li>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus,
+                rerum.
+              </li>
+            </ul>
+          </CardItem>
+          <div className="flex justify-between items-center mt-5">
+            <CardItem
+              translateZ={20}
+              as={Link}
+              href="https://twitter.com/mannupaaji"
+              target="__blank"
+              className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
+            >
+              Github →
+            </CardItem>
+
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            >
+              Live
+            </CardItem>
+          </div>
+        </CardBody>
+      </CardContainer>
+    </div>
   );
 }

@@ -9,6 +9,17 @@
   color: #ff0000;
   animation: dotglow 0.5s infinite ease-in-out;
 }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.image {
+  width: 100%;
+  transition: transform 3s linear;
+}
+
+.scr_img:hover .image {
+  transform: translateY(-67.5%);
+}
 
 @keyframes dotglow {
   0%,
