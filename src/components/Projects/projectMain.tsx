@@ -6,11 +6,12 @@ export default function ProjectMain() {
   return (
     <div className="">
       <div className=" w-full flex justify-center   my-10">
-        <div className="bg-black  inline-block animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   mx-auto">
-          <h1 className="  uppercase py-5 px-5 traking-wideset  md:text-3xl text-xl lg:text-4xl text-center">
+        <div className="bg-black flex justify-center items-center animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   lg:mx-auto">
+          <h1 className="  uppercase py-2  lg:py-5 px-8 lg:px-5 traking-wideset font-bold  md:text-3xl text-xl lg:text-4xl text-center">
             Projects
           </h1>
         </div>
+       
       </div>
       <div className="mx-auto lg:w-[90%] w-5/6">
         <ProjectCard />

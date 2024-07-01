@@ -32,7 +32,7 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        `bg-transparent inset-x-0 max-w-2xl mx-auto z-50 fixed top-0 transition-transform   ${
+        `bg-transparent inset-x-0 max-w-2xl mx-auto z-50 fixed max-sm:w-[90%] top-0 transition-transform   ${
           hide ? "-translate-y-[calc(100%+20px)]" : "translate-y-0"
         }`,
         className
@@ -47,6 +47,14 @@ function Navbar({ className }: { className?: string }) {
             item="Home"
           ></MenuItem>
         </Link>
+        <Link href="/">
+          {" "}
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item="Skills"
+          ></MenuItem>
+        </Link>
         <MenuItem setActive={setActive} active={active} item="Projects">
           <div className="flex flex-col space-y-4 text-sm">
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -55,6 +63,13 @@ function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/branding">Branding</HoveredLink>
           </div>
         </MenuItem>
+        <Link href="/contact">
+          <MenuItem
+            setActive={setActive}
+            active={active}
+            item="About"
+          ></MenuItem>
+        </Link>
         <Link href="/contact">
           <MenuItem
             setActive={setActive}

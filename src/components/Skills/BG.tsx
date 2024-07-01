@@ -28,8 +28,8 @@ export function BG() {
     >
       {/* <Progress value={80} /> */}
       <div className=" w-full flex justify-center   my-10">
-        <div className="bg-black  inline-block animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   mx-auto">
-          <h1 className="  uppercase py-5 px-5 traking-wideset  md:text-3xl text-xl lg:text-4xl text-center">
+        <div className="bg-black flex justify-center items-center animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   lg:mx-auto">
+          <h1 className="  uppercase py-2  lg:py-5 px-8 lg:px-5 traking-wideset font-bold  md:text-3xl text-xl lg:text-4xl text-center">
             skills
           </h1>
         </div>
@@ -151,13 +151,13 @@ export function BG() {
                     <Progress time={1000} value={70} />
                   </div>
                   <div>
-                    <h1 className="mb-1">NPM</h1>
+                    <h1 className="mb-1">NPM & Yarn</h1>
                     <Progress time={1000} value={80} />
                   </div>
-                  <div>
+                  {/* <div>
                     <h1 className="mb-1">Yarn</h1>
                     <Progress time={1000} value={80} />
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
