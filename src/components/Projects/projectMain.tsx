@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectCard } from "./ProjectCard";
+import ProjectCard from "./ProjectCard";
 import { HoverBorderGradient } from "../ui/hover-border-gradient";
 
 export default function ProjectMain() {
@@ -12,7 +12,7 @@ export default function ProjectMain() {
           </h1>
         </div>
       </div>
-      <div className=" mx-auto w-5/6">
+      <div className="mx-auto lg:w-[90%] w-5/6">
         <ProjectCard />
       </div>
       <div className=" mt-8 flex justify-center text-center">
