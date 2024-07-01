@@ -19,13 +19,13 @@ export function Contact() {
       <div className=" h-[41rem]  mt-10 w-full rounded-md bg-neutral-950  relative items-center justify-center antialiased">
         <div className=" relative z-10  ">
           <div className=" w-full flex justify-center   mt-20">
-            <div className="bg-black flex justify-center items-center animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   lg:mx-auto">
+            <div className="bg-black flex justify-center mt-10 items-center animate-navGlow rounded-tr-[3rem] rounded-bl-[3rem] relative z-10 h-20   lg:mx-auto">
               <h1 className="  uppercase py-2  lg:py-5 px-8 lg:px-5 traking-wideset font-bold  md:text-3xl text-xl lg:text-4xl text-center">
                 Contact
               </h1>
             </div>
           </div>
-          <div className="max-w-md mt-10 w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black/30">
+          <div className="max-w-md mt-6 lg:mt-10 w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black/30">
             <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
               Contact With Me
             </h2>

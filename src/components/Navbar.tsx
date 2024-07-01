@@ -32,7 +32,7 @@ function Navbar({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        `bg-transparent inset-x-0 max-w-2xl mx-auto z-50 fixed max-sm:w-[90%] top-0 transition-transform   ${
+        `bg-transparent inset-x-0 max-w-2xl mx-auto z-50 fixed max-sm:w-[90%] max-sm:px-2 top-0 transition-transform   ${
           hide ? "-translate-y-[calc(100%+20px)]" : "translate-y-0"
         }`,
         className
