@@ -12,7 +12,7 @@ export default function About() {
             </h1>
           </div>
         </div>
-        <div className=" w-3/4 mt-8 mx-auto rounded-3xl p-5 border-4">
+        <div className=" w-[95%] lg:w-3/4 mt-8 mx-auto rounded-3xl p-5 border-4">
           <p>
             {" "}
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus
